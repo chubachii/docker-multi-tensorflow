@@ -1,0 +1,72 @@
+version: '3.2'
+services:
+
+  
+  # バージョンごとにサービスを追加する
+  # tensorflow 2.0.0
+  #tf200:
+    
+    # Dockerfile の場所
+    #build:
+      #context: tf200
+      #dockerfile: Dockerfile
+    
+    # devcontainer.json で決めたコンテナ名
+    #container_name: 'container_tf200'
+    #tty: true
+
+    # ローカルファイルのマウント
+    # 左がローカルファイルの場所
+    # 右がコンテナ上の場所
+    #volumes: 
+      #- ../work:/work 
+    
+    # GPUの設定
+    #deploy:
+      #resources:
+        #reservations:
+          #devices:
+            #- driver: nvidia
+              #count: 1
+              #capabilities: [gpu]
+   
+
+  # tensorflow 2.5.0
+  tf250:
+    build:
+      context: tf250
+      dockerfile: Dockerfile
+    container_name: 'container_tf250'
+    tty: true
+    volumes: 
+      - ../work:/work
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+
+  # tensorflow 2.6.0
+  tf260:
+    build:
+      context: tf260
+      dockerfile: Dockerfile
+    container_name: 'container_tf260'
+    #working_dir: '/work'
+    tty: true
+    volumes: 
+      - ../work:/work
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+
+
+    
