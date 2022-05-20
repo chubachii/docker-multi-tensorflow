@@ -5,7 +5,7 @@
 # Python : 3.8
 # Tensorflow : 1.15.5
 
-FROM nvcr.io/nvidia/tensorflow:20.03-tf1-py3
+FROM nvcr.io/nvidia/tensorflow:22.03-tf1-py3
 
 # 環境変数
 # ENV http_proxy 'http://id:pass@proxy:port' など
