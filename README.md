@@ -37,3 +37,17 @@ FROM nvcr.io/nvidia/tensorflow:21.10-tf2-py3
 [コンテナの起動](#4-コンテナの起動)でエラーが出る場合、ターミナルから事前に
 `docker image pull nvcr.io/nvidia/tensorflow:21.10-tf2-py3`（Dockerfile 内 FROM 先を参考に変更する）
 実行することで対処できる可能性がある。 もしくは再起動。
+
+#### バージョン対応表
+| Container version | Tensorflow version | CUDA version |
+| ---- | ---- | ---- |
+| [22.03](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_22-03.html#rel_22-03) | 1.15.1 | 11.6.1 |
+| [20.01](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_20-01.html#rel_20-01) | 2.0.0 | 10.2.89 |
+| [20.03](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_20-03.html#rel_20-03) | 2.1.0 | 10.2.89 |
+| [20.08](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_20-08.html#rel_20-08) | 2.2.0 | 11.0.3 |
+| [20.12](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_20-08.html#rel_20-12) | 2.3.1 | 11.1.1 |
+| [21.05](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_20-08.html#rel_21-05) | 2.4.0 | 11.3.0 |
+| [21.08](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_20-08.html#rel_21-08) | 2.5.0 | 11.4.1 |
+| [21.10](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_20-08.html#rel_21-10) | 2.6.0 | 11.4.2 |
+| [22.02](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_20-08.html#rel_22-02) | 2.7.0 | 11.6.0 |
+| [22.04](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_20-08.html#rel_22-04) | 2.8.0 | 11.6.2 |
