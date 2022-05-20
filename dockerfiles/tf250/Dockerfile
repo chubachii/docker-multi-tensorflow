@@ -1,4 +1,4 @@
-# https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_21-11.html#rel_21-11
+# https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_21-08.html#rel_21-08
 # Ubuntu : 20.04
 # CUDA   : 11.4.1
 # cuDNN  : 8.2.2.26
