@@ -6,21 +6,25 @@
 - Geforce Game Ready Driver : 512.15
 - Docker Engine : 20.10.13
 
-#### 1. Docker 環境の構築
+#### 1. NVIDIA Container Toolkit について
+Dockerコンテナ上で GPU を使用するためには、ホストOSと同じバージョンのドライバをコンテナ上にインストールする必要があった。[NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker
+)（旧 NVIDIA Docker）はコンテナ内に CUDA、cuDNN がインストールされおり、ホスト側に NVIDIA ドライバをインストールするだけで GPU を使用できる、可搬性の高い Docker image を提供する。
+
+#### 2. Docker 環境の構築
 [WSL2+Docker+VSCodeの開発環境構築とPythonでWebアプリを試すまで](https://zenn.dev/kcabo/articles/c4f9b7fecc503a) を参考に、Dockerfile からコンテナが作成できることを確認する。 また、使用するGPUに対応する GeForce Game Ready Driver（GPUドライバ）をインストールする。 ホストOSに CUDA Toolkit はインストールしない。
 
-#### 2. Dockerfile のクローン
+#### 3. Dockerfile のクローン
 GitHub を開き、[docker-multi-tensorflow](https://github.com/chubachii/docker-multi-tensorflow)を Fork する。 VSCode から GitHub アカウントに接続し、  
 `コマンドパレット -> Git: Clone -> Clone from GitHub`  
 で Fork したリポジトリを選択する。
 
-#### 3. docker-compose.yml の編集
+#### 4. docker-compose.yml の編集
 docker-compseは複数のコンテナを一つのまとまりとして管理できる。  サービス（コンテナ）名は TensorFlow のバージョンを取り、tf260（ TensorFlow 2.6.0 ）のように名づけている。  
 まず、使用したい TensorFlow のバージョンに対応する dockerfile が `docker-multi-tensorflow -> dockerfiles` に存在するかを確認する。 ない場合は [dockerfile の作成方法](#dockerfile-の作成方法)を参考に追加する。  
 次に docker-compose.yml を開き TensorFlow 2.6.0 の例を参考に、使用したいバージョンのサービスを追加する。
 
-#### 4. コンテナの起動
-VSCode 左下の >< から、`Open Folder in Container... -> dockerfiles -> tf xxx（使用したいバージョン）`自動的にコンテナが起動する。 初回起動時は 2.5GB 程度の image を pull する。 コンテナ起動後、
+#### 5. コンテナの起動
+VSCode 左下の >< から、`Open Folder in Container... -> dockerfiles -> tf xxx（使用したいバージョン）`で自動的にコンテナが起動する。 初回起動時は 2.5GB 程度の image を pull する。 コンテナ起動後、
 ``` bash
 python3 version.py
 ```
@@ -31,7 +35,7 @@ dockerfiles 内の適当なフォルダー（ tf260 など）を複製し、`.de
 ``` dockerfile
 FROM nvcr.io/nvidia/tensorflow:21.10-tf2-py3
 ```
-の tag（ 20.01-tf2-py3 ）を書き換える。
+の tag（ 21.10-tf2-py3 ）を書き換える。
 
 #### コンテナ生成時のエラーの対処法
 [コンテナの起動](#4-コンテナの起動)でエラーが出る場合、ターミナルから事前に
