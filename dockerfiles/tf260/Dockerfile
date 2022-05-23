@@ -11,4 +11,8 @@ FROM nvcr.io/nvidia/tensorflow:21.10-tf2-py3
 # ENV http_proxy 'http://id:pass@proxy:port' など
 
 # コマンド実行
-# RUN apt-get update && apt-get upgrade -y  など
+# RUN apt-get update && apt-get upgrade -y など
+
+# dockerfiles/requirements.txt をコピー
+COPY ../requirements.txt .
+RUN pip install -r requirements.txt

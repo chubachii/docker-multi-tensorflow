@@ -12,3 +12,7 @@ FROM nvcr.io/nvidia/tensorflow:22.04-tf2-py3
 
 # コマンド実行
 # RUN apt-get update && apt-get upgrade -y  など
+
+# dockerfiles/requirements.txt をコピー
+COPY ../requirements.txt .
+RUN pip install -r requirements.txt
