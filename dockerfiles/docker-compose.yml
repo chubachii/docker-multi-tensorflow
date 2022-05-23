@@ -6,9 +6,11 @@ services:
   tf260:
 
     # Dockerfile の場所
+    # コンテキストは tf260 を指定しない
+    # （tf260をコンテキストにするとDockerfileで親ディレクトリにある requirements.txt がコピーできない ）
     build:
-      context: tf260
-      dockerfile: Dockerfile
+      context: .  
+      dockerfile: tf260/Dockerfile
     
     # devcontainer.json で決めたコンテナ名
     container_name: 'container_tf260'
@@ -33,6 +35,3 @@ services:
 
   # tensorflow x.x.x
   #tfxxx:
-
-
-    
