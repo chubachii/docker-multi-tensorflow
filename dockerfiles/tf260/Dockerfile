@@ -11,8 +11,14 @@ FROM nvcr.io/nvidia/tensorflow:21.10-tf2-py3
 # ENV http_proxy 'http://id:pass@proxy:port' など
 
 # コマンド実行
-# RUN apt-get update && apt-get upgrade -y など
+RUN apt-get update && apt-get upgrade -y
+
+# import cv2 時エラー回避のため
+RUN apt-get install libgl1-mesa-dev -y
 
 # dockerfiles/requirements.txt をコピー
 COPY ../requirements.txt .
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+
+COPY ../fonts/ /usr/share/fonts
