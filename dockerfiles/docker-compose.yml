@@ -21,7 +21,7 @@ services:
     # ローカルファイルのマウント
     # 左がローカルファイルの場所, 右がコンテナ上の場所
     volumes: 
-      - ../work:/work
+      - ../../../work:/work
 
     # GPUの設定
     deploy:
@@ -35,3 +35,4 @@ services:
 
   # tensorflow x.x.x
   #tfxxx:
+
