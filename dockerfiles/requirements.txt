@@ -3,3 +3,5 @@ scikit-learn
 opencv-python
 opencv-contrib-python
 japanize-matplotlib
+numpy==1.23.4
+pandas
